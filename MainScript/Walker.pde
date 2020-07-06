@@ -55,9 +55,9 @@ class Walker{
     if(this.inBounds){
       PVector pointA = points.get(0);
       PVector pointB = points.get(1);
-      color col = get(int(width/2+pointB.x-photo.width), int((height-photo.height)/2+pointB.y));
-      stroke(red(col), green(col), blue(col));
-      line(pointA.x+photo.width, pointA.y, pointB.x+photo.width, pointB.y);
+      PVector col = colors[int(this.xPos)][int(this.yPos)];
+      stroke(col.x, col.y, col.z);
+      line(pointA.x, pointA.y, pointB.x, pointB.y);
       points.remove(0);
     }
   }
