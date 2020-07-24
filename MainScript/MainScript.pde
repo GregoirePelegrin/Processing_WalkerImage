@@ -1,5 +1,6 @@
 PImage photo;
-int[] mask;
+
+PVector[][] colors;
 
 ArrayList<Walker> artists;
 float rand;
@@ -16,9 +17,16 @@ void setup() {
   noFill();
   
   photo = loadImage("Image.jpg");
-  mask = new color[photo.width*photo.height];
-  for(int i=0; i<photo.width*photo.height; i++){
-    mask[i] = 0;
+  translate(width/2-photo.width, (height-photo.height)/2);
+  image(photo, 0, 0);
+  
+  colors = new PVector[photo.width][photo.height];
+  for(int Y=0; Y<photo.height; Y++){
+    for(int X=0; X<photo.width; X++){
+      colors[X][Y].x = red(get(int((width-photo.width)/2)+X, int((height-photo.height)/2)+Y));    //NullPointerException ??
+      colors[X][Y].y = green(get(int((width-photo.width)/2)+X, int((height-photo.height)/2)+Y));
+      colors[X][Y].z = blue(get(int((width-photo.width)/2)+X, int((height-photo.height)/2)+Y));
+    }
   }
 
   artists = new ArrayList<Walker>();
