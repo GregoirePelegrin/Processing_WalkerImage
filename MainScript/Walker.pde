@@ -10,9 +10,9 @@ class Walker{
   
   Walker(float xs, float ys){
     this.points = new ArrayList<PVector>();
-    this.points.add(new PVector(0, 0));
     this.xPos = random(photo.width);
     this.yPos = random(photo.height);
+    this.points.add(new PVector(xPos, yPos));
     this.xSpeed = xs;
     this.ySpeed = ys;
     this.timeX = random(10000);
